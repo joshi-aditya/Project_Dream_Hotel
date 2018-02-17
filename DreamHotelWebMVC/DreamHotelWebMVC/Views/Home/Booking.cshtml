@@ -1,0 +1,30 @@
+﻿@model DreamHotelWebMVC.Models.BookingReservation
+@inject DreamHotelWebMVC.Models.Services.FormattingService FormattingService
+
+<div>
+    
+    <div class="container">
+        <div class="row">
+            <fieldset>
+
+                <form asp-action="Booking" asp-controller="Home">
+        
+                    <div asp-validation-summary="ModelOnly" class="input-validation-error"></div>
+        
+                    <p>
+                        <label asp-for="CheckIn"></label>
+                        <input asp-for="CheckIn" type="date" class="form-control" value="@FormattingService.AsReadableDate(DateTime.Now)"/>
+                    </p>
+                    
+                    <p>
+                        <label asp-for="CheckOut"></label>
+                        <input asp-for="CheckOut" type="date" value="" />
+                    </p>
+
+                </form>
+
+            </fieldset>
+        </div>
+    </div>
+
+</div>

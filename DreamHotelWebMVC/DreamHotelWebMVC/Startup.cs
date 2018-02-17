@@ -16,6 +16,7 @@ namespace DreamHotelWebMVC
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddMvcCore().AddRazorViewEngine();
+            services.AddTransient<DreamHotelWebMVC.Models.Services.FormattingService>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
