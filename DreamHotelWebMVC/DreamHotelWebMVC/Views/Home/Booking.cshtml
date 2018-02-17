@@ -13,12 +13,12 @@
         
                     <p>
                         <label asp-for="CheckIn"></label>
-                        <input asp-for="CheckIn" type="date" class="form-control" value="@FormattingService.AsReadableDate(DateTime.Now)"/>
+                        <input asp-for="CheckIn" type="date" class="form-control checkin-date"  min="@FormattingService.AsReadableDate(DateTime.Now)"/>
                     </p>
                     
                     <p>
                         <label asp-for="CheckOut"></label>
-                        <input asp-for="CheckOut" type="date" value="" />
+                        <input asp-for="CheckOut" type="date" class="form-control checkout-date" min="@FormattingService.AsReadableDate(DateTime.Now)"/>
                     </p>
 
                 </form>

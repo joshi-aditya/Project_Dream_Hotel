@@ -19,9 +19,17 @@
 			$body.addClass('is-loading');
 
 			$window.on('load', function() {
-				$body.removeClass('is-loading');
+                $body.removeClass('is-loading');
+                $('.checkin-date').click(dateFix);
+			    $('.checkin-date').blur(dateFix);
 			});
 
+            function dateFix() {
+                var cd = $(".checkin-date").val();
+                console.log(cd);
+                $('.checkin-date').attr('value', cd);
+	            $('.checkout-date').attr('min', cd);
+	        }
 		// Fix: Placeholder polyfill.
 			$('form').placeholder();
 

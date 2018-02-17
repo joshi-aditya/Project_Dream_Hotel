@@ -7,9 +7,11 @@ namespace DreamHotelWebMVC.Models.Services
 {
     public class FormattingService
     {
+
         public string AsReadableDate(DateTime date)
         {
-            return date.ToString("ddd, MMMM dd");
+            return date.ToString("yyyy-MM-dd");
         }
+        
     }
 }
