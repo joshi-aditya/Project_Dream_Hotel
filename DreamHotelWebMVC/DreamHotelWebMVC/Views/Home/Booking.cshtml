@@ -1,43 +1,69 @@
 ﻿@model DreamHotelWebMVC.Models.BookingReservation
 @inject DreamHotelWebMVC.Models.Services.FormattingService FormattingService
 
-<div>
-    
-    <div class="container">
-        <div class="row">
-            <fieldset>
+<div class="banner">
+    <div class="opaque-bg">
+        <div class="container">
+            <div class="row">
+                <fieldset class="mt-50 mb-50">
 
-                <form asp-action="Booking" asp-controller="Home">
-        
-                    <div asp-validation-summary="ModelOnly" class="input-validation-error"></div>
-                    
-                        <div class='col-md-5'>
+                    <form asp-action="Booking" asp-controller="Home">
+
+                        <div asp-validation-summary="ModelOnly" class="input-validation-error"></div>
+
+                        <div class='col-md-4 col-sm-6 col-md-offset-1'>
                             <div class="form-group">
-                                <label>Check-In Date</label>
+                                <label asp-for="CheckIn" class="font-white"></label>
                                 <div class='input-group date' id='datetimepicker6'>
-                                    <input type='text' class="form-control" asp-for="CheckIn"/>
+                                    <input type='text' class="form-control" asp-for="CheckIn" />
                                     <span class="input-group-addon">
                                         <span class="glyphicon glyphicon-calendar"></span>
                                     </span>
                                 </div>
                             </div>
                         </div>
-                        <div class='col-md-5'>
+                        <div class='col-md-4 col-sm-6 col-md-offset-1'>
                             <div class="form-group">
-                                <label>Check-Out Date</label>
+                                <label asp-for="CheckOut" class="font-white"></label>
                                 <div class='input-group date' id='datetimepicker7'>
-                                    <input asp-for="CheckOut" type="text" class="form-control"/>
+                                    <input asp-for="CheckOut" type="text" class="form-control" />
                                     <span class="input-group-addon">
                                         <span class="glyphicon glyphicon-calendar"></span>
                                     </span>
                                 </div>
                             </div>
                         </div>
-                    
-                </form>
 
-            </fieldset>
+
+                        <div class="col-md-4 col-sm-6 col-md-offset-1">
+                            <label asp-for="Room" class="font-white"></label>
+                            <div class="form-group">
+                                <select class="form-control">
+                                    <option value="Single Bed Room">Single Bed Room</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <div class="col-md-4 col-sm-6 col-md-offset-1">
+                            <label asp-for="NumberOfPersons" class="font-white"></label>
+                            <div class="form-group">
+                                <select class="form-control">
+                                    <option value="1">1</option>
+                                    <option value="2">2</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <div class="col-sm-12 col-md-offset-1">
+                            <p class="mt-20">
+                                <button class="btn btn-default" type="submit">Book Now</button>
+                            </p>
+                        </div>
+
+                    </form>
+
+                </fieldset>
+            </div>
         </div>
     </div>
-
 </div>

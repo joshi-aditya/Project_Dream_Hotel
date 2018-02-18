@@ -15,8 +15,8 @@ namespace DreamHotelWebMVC.Controllers
             var reservationClient = new ReservationClient("http://localhost:60361");
 
             // Read initial student list:
-            var rooms = reservationClient.GetRoomsAsync().Result;
-            ViewData["rooms"] = rooms;
+            //var rooms = reservationClient.GetRoomsAsync().Result;
+            //ViewData["rooms"] = rooms;
             
             return View();
         }

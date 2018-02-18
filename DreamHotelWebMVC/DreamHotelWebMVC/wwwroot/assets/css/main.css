@@ -3141,7 +3141,7 @@ input[type="button"],
 
 @media screen and (min-width: 768px) {
     .image.left img {
-        height: 20vh;
+        height: 15vh;
     }
 }
 
@@ -3156,10 +3156,38 @@ input[type="button"],
         display: inline-flex;
     }
 
-    #nav ul li:last-child {
-        margin-left: auto;
-    }
+        #nav ul li:last-child {
+            margin-left: auto;
+        }
 
         #nav ul li a {
             display: inherit;
         }
+
+.text-align-center {
+    text-align: center
+}
+
+    .text-align-center > .btn {
+        padding: 8px 22px;
+    }
+
+.banner {
+    background: url('/images/banner.jpg') center;
+}
+
+.mb-50 {
+    margin-bottom: 50px;
+}
+
+.font-white {
+    color: #f7f7f7;
+}
+
+.mt-20 {
+    margin-top: 20px;
+}
+
+.opaque-bg {
+    background-color: rgba(0,0,0, 0.4);
+}
