@@ -10,17 +10,30 @@
                 <form asp-action="Booking" asp-controller="Home">
         
                     <div asp-validation-summary="ModelOnly" class="input-validation-error"></div>
-        
-                    <p>
-                        <label asp-for="CheckIn"></label>
-                        <input asp-for="CheckIn" type="date" class="form-control checkin-date"  min="@FormattingService.AsReadableDate(DateTime.Now)"/>
-                    </p>
                     
-                    <p>
-                        <label asp-for="CheckOut"></label>
-                        <input asp-for="CheckOut" type="date" class="form-control checkout-date" min="@FormattingService.AsReadableDate(DateTime.Now)"/>
-                    </p>
-
+                        <div class='col-md-5'>
+                            <div class="form-group">
+                                <label>Check-In Date</label>
+                                <div class='input-group date' id='datetimepicker6'>
+                                    <input type='text' class="form-control" asp-for="CheckIn"/>
+                                    <span class="input-group-addon">
+                                        <span class="glyphicon glyphicon-calendar"></span>
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class='col-md-5'>
+                            <div class="form-group">
+                                <label>Check-Out Date</label>
+                                <div class='input-group date' id='datetimepicker7'>
+                                    <input asp-for="CheckOut" type="text" class="form-control"/>
+                                    <span class="input-group-addon">
+                                        <span class="glyphicon glyphicon-calendar"></span>
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
+                    
                 </form>
 
             </fieldset>

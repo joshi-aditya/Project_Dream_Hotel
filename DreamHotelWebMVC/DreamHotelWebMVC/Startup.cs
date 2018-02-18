@@ -15,6 +15,7 @@ namespace DreamHotelWebMVC
         // For more information on how to configure your application, visit https://go.microsoft.com/fwlink/?LinkID=398940
         public void ConfigureServices(IServiceCollection services)
         {
+            services.AddCors();
             services.AddMvcCore().AddRazorViewEngine();
             services.AddTransient<DreamHotelWebMVC.Models.Services.FormattingService>();
         }
@@ -26,6 +27,9 @@ namespace DreamHotelWebMVC
             {
                 app.UseDeveloperExceptionPage();
             }
+
+            app.UseCors(builder =>
+                builder.WithOrigins("https://cdnjs.com/"));
 
             app.UseMvc(routes =>
             {
