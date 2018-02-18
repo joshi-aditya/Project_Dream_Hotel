@@ -16,9 +16,9 @@ namespace DreamHotelWebApi.Controllers
             return View();
         }
 
-        // GET api/rooms
+        // GET api/reservation/rooms
         [HttpGet]
-        [Route("api/[controller]")]
+        [Route("api/reservation/[controller]")]
         public IEnumerable<Rooms> Get() {
             return rm.GetAll;
         }
