@@ -1,4 +1,6 @@
 ﻿
+@model DreamHotelWebMVC.Models.BookingReservation
+
 @{
     Layout = "_Layout";
 }
@@ -9,7 +11,7 @@
 
 <!-- Reservation -->
 
-@Html.Partial("Booking");
+@Html.Partial("_Booking", Model);
 
 <!-- Highlights -->
 <section class="wrapper style1">

@@ -3230,3 +3230,7 @@ ul.dropdown-menu.dropotron li:not(.divider):hover {
     border-top: 1px solid transparent;
     opacity: 0.9;
 }
+
+.guest-details {
+    background: url("/images/banner_bg.jpg") center;
+}

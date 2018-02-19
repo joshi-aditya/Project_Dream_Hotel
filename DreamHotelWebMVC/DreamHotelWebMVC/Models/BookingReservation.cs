@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Mvc.Rendering;
 
 namespace DreamHotelWebMVC.Models
 {
@@ -10,6 +11,7 @@ namespace DreamHotelWebMVC.Models
     {
 
         public long Id { get; set; }
+        public List<SelectListItem> newList = new List<SelectListItem>();
         public List<Person> Persons;
 
         [Required]
@@ -26,7 +28,7 @@ namespace DreamHotelWebMVC.Models
 
         [Required]
         [Display(Name = "Type of Room")]
-        public RoomType Room { get; set; }
+        public Rooms Room { get; set; }
 
         public BookingReservation()
         {
@@ -35,19 +37,4 @@ namespace DreamHotelWebMVC.Models
 
     }
 
-    public class Person
-    {
-        [Required]
-        public string FirstName { get; set; }
-
-        [Required]
-        public string LastName { get; set; }
-        
-        public int Age { get; set; }
-    }
-
-    public class RoomType
-    {
-        public string TypeOfRoom { get; set; }
-    }
 }
