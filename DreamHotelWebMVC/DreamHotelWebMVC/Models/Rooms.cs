@@ -11,8 +11,6 @@ namespace DreamHotelWebMVC.Models
         public string Type { get; set; }
         public int Rent { get; set; }
 
-        public List<SelectListItem> RoomsList { get; set; }
-
     }
 
 }

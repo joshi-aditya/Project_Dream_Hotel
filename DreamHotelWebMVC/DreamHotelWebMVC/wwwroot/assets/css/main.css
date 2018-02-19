@@ -3174,12 +3174,16 @@ input[type="button"],
 
 .banner {
     background: url('/images/banner.jpg') center;
+    height: 425px !important;
 }
 
 .mb-50 {
     margin-bottom: 50px;
 }
 
+.mt-70 {
+    margin-top: 70px !important;
+}
 .font-white {
     color: #f7f7f7;
 }
@@ -3233,4 +3237,18 @@ ul.dropdown-menu.dropotron li:not(.divider):hover {
 
 .guest-details {
     background: url("/images/banner_bg.jpg") center;
+}
+
+.carousel {
+    margin-bottom: 0;
+}
+
+img[class$="-slide"] {
+    opacity: 0.4;
+}
+
+@media (max-width: 767px) {
+    .mt-70 {
+        margin-top: 0 !important;
+    }
 }

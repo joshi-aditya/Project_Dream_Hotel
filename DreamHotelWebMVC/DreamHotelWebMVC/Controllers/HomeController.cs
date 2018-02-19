@@ -11,12 +11,15 @@ namespace DreamHotelWebMVC.Controllers
 {
     public class HomeController : Controller
     {
+        BookingReservation _bookingReservation;
+        private IEnumerable<Rooms> rooms;
 
-        public IActionResult Index() {
+        public IActionResult Index()
+        {
 
-            BookingReservation bookingReservation = new BookingReservation();
-            bookingReservation.CheckIn = DateTime.Now;
-            bookingReservation.CheckOut = DateTime.Now;
+            _bookingReservation = new BookingReservation();
+            _bookingReservation.CheckIn = DateTime.Now;
+            _bookingReservation.CheckOut = DateTime.Now;
 
             // Create a company client instance:
             var baseUri = new Uri("http://localhost:60361");
@@ -25,28 +28,31 @@ namespace DreamHotelWebMVC.Controllers
             // Read initial rooms list:
 
             //ViewData["rooms"] = rooms;
-            var rooms = reservationClient.GetRoomsAsync().Result;
+            rooms = reservationClient.GetRoomsAsync().Result;
             List<SelectListItem> newrooms = new List<SelectListItem>();
             foreach (Rooms room in rooms)
             {
                 newrooms.Add(new SelectListItem { Value = room.Rent.ToString(), Text = room.Type });
             }
-            bookingReservation.newList = newrooms;
-            bookingReservation.Room = rooms.First(_ => true);
-            return View(bookingReservation);
+            _bookingReservation.newList = newrooms;
+            _bookingReservation.R = rooms.First(_ => true);
+            _bookingReservation.Room = _bookingReservation.R.Type;
+            return View(_bookingReservation);
         }
 
         [HttpPost]
         public IActionResult Booking(BookingReservation bookingReservation)
         {
-            return View();
+            return RedirectToAction("GuestDetails", "Home", bookingReservation);
         }
 
-
-        [HttpPost]
-        public IActionResult GuestDetails()
+        public IActionResult GuestDetails(BookingReservation bookingDetails)
         {
-            return View();
+            var numberOfPersons = bookingDetails.NumberOfPersons;
+            IEnumerable<Person> model = new List<Person>();
+            for (var i = 0; i < numberOfPersons; i++)
+                model.Append(new Person());
+            return View(model);
         }
     }
 }

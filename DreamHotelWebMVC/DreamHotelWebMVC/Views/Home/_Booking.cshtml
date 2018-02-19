@@ -5,7 +5,7 @@
     <div class="opaque-bg">
         <div class="container">
             <div class="row">
-                <fieldset class="mt-50 mb-50">
+                <fieldset class="mt-70 mb-50">
 
                     <form asp-action="Booking" asp-controller="Home">
 
@@ -39,7 +39,9 @@
                         <div class="col-md-4 col-sm-6 col-md-offset-1">
                             <label asp-for="Room" class="font-white"></label>
                             <div class="form-group">
-                                <select class="form-control" asp-for="Room" asp-items="@Model.newList"></select>
+                                <select class="form-control" asp-for="Room" asp-items="@Model.newList">
+                                    <option disabled selected>--- SELECT ---</option>
+                                </select>
                             </div>
                             <span asp-validation-for="Room"></span>
                         </div>
@@ -47,9 +49,12 @@
                         <div class="col-md-4 col-sm-6 col-md-offset-1">
                             <label asp-for="NumberOfPersons" class="font-white"></label>
                             <div class="form-group">
-                                <select class="form-control">
+                                <select class="form-control" asp-for="NumberOfPersons">
+                                    <option disabled selected>--- SELECT ---</option>
                                     <option value="1">1</option>
                                     <option value="2">2</option>
+                                    <option value="3">3</option>
+                                    <option value="4">4</option>
                                 </select>
                             </div>
                             <span asp-validation-for="NumberOfPersons"></span>

@@ -28,7 +28,9 @@ namespace DreamHotelWebMVC.Models
 
         [Required]
         [Display(Name = "Type of Room")]
-        public Rooms Room { get; set; }
+        public Rooms R { get; set; }
+
+        public string Room { get; set; }
 
         public BookingReservation()
         {
