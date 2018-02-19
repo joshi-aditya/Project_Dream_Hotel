@@ -3191,3 +3191,42 @@ input[type="button"],
 .opaque-bg {
     background-color: rgba(0,0,0, 0.4);
 }
+
+.myaccount {
+    margin-top: 5%;
+    margin-bottom: 5%;
+}
+
+.center {
+    margin-top: 3%;
+    margin-bottom: 3%;
+    padding-bottom: 3%;
+    text-align: center;
+}
+
+header.major p {
+    border-top: none;
+}
+
+.brand {
+    align-self: center;
+    font-size: 24px;
+}
+
+ul.dropdown-menu.dropotron li a:hover {
+    background: transparent;
+}
+
+ul.dropdown-menu.dropotron li {
+    opacity: 0.6;
+}
+
+li.divider {
+    background-color: #565353 !important;
+}
+
+ul.dropdown-menu.dropotron li:not(.divider):hover {
+    border-bottom: 1px solid transparent;
+    border-top: 1px solid transparent;
+    opacity: 0.9;
+}

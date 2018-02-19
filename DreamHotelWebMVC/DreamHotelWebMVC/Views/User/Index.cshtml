@@ -3,5 +3,13 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h2>View</h2>
-
+<div class="container">
+    <div class="row">
+        <div class="col-sm-6 col-xs-12">
+            @Html.Partial("Login")
+        </div>
+        <div class="col-sm-6 col-xs-12">
+            @Html.Partial("Register")
+        </div>
+    </div>
+</div>

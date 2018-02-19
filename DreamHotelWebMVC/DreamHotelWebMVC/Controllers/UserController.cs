@@ -6,10 +6,23 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace DreamHotelWebMVC.Controllers
 {
-    [Route("/user")]
+    [Route("")]
     public class UserController : Controller
     {
+        [Route("/login")]
         public IActionResult Index()
+        {
+            return View();
+        }
+
+        [HttpPost]
+        public IActionResult Login()
+        {
+            return View();
+        }
+
+        [HttpPost]
+        public IActionResult Register()
         {
             return View();
         }
