@@ -18,7 +18,7 @@
 
                     @foreach (var guest in Model)
                     {
-                        @Html.Partial("_GuestDetail", guest)
+                        @await Html.PartialAsync("_GuestDetail", guest)
                     }
                     
                     <div class="col-sm-12">

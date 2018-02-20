@@ -43,7 +43,10 @@ namespace DreamHotelWebMVC.Controllers
         public IActionResult Booking(BookingReservation bookingReservation)
         {
             rooms = reservationClient.GetRoomsAsync().Result;
-            _bookingReservation.R = rooms.FirstOrDefault(_ => _.Type.Equals(bookingReservation.Room));
+            bookingReservation.R = rooms.FirstOrDefault(_ => _.Type.Equals(bookingReservation.Room));
+            bookingReservation.Room = bookingReservation.R.Type;
+            _bookingReservation.R = bookingReservation.R;
+            _bookingReservation.Room = _bookingReservation.R.Type;
             _bookingReservation.CheckIn = bookingReservation.CheckIn;
             _bookingReservation.CheckOut = bookingReservation.CheckOut;
             _bookingReservation.NumberOfPersons = bookingReservation.NumberOfPersons;
@@ -65,7 +68,7 @@ namespace DreamHotelWebMVC.Controllers
         [HttpPost]
         public IActionResult GuestDetails(IEnumerable<Person> per)
         {
-            _bookingReservation.Persons .Concat(per.ToList());
+            _bookingReservation.Persons.Concat(per.ToList());
             var res = reservationClient.CreateReservation(_bookingReservation);
             return RedirectToAction("Index");
         }
