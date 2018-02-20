@@ -61,5 +61,13 @@ namespace DreamHotelWebMVC.Controllers
             ViewBag.Price = _bookingReservation.R.Rent;
             return View(model);
         }
+
+        [HttpPost]
+        public IActionResult GuestDetails(IEnumerable<Person> per)
+        {
+            _bookingReservation.Persons = per.ToList();
+            var res = reservationClient.CreateReservation(_bookingReservation);
+            return RedirectToAction("Index");
+        }
     }
 }
