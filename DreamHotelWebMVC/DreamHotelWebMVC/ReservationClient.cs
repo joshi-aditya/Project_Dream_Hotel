@@ -69,7 +69,24 @@ namespace DreamHotelWebMVC
                     return null;
                 }
             }
-            //return result;
+        }
+
+        public System.Net.HttpStatusCode CreateReservation(BookingReservation bookingReservation) {
+
+            using (var client = CreateActionClient("Reservation")) {
+
+                HttpResponseMessage response = null;
+                try {
+                    
+                    var output = JsonConvert.SerializeObject(bookingReservation);
+                    HttpContent contentPost = new StringContent(output, System.Text.Encoding.UTF8, "application/json");
+                    response = client.PostAsync(client.BaseAddress, contentPost).Result;
+                }
+                catch (Exception ex) {
+                    Console.WriteLine(ex.Message);
+                }
+                return response.StatusCode;
+            }
         }
     }
 }
