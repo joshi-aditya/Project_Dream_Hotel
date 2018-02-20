@@ -9,16 +9,8 @@ namespace DreamHotelWebApi.Models
 {
     public class BookingReservationManager
     {
-        List<BookingReservation> _reservation;
+        List<BookingReservation> _reservation = new List<BookingReservation>();
         public BookingReservationManager() {
-            try {
-                if (File.Exists("reservation.txt")) {
-                    _reservation = ReadreservationList().ToList();
-                }
-            }
-            catch (IOException ioe) {
-
-            }
         }
 
         IEnumerable<BookingReservation> ReadreservationList() {
@@ -26,6 +18,9 @@ namespace DreamHotelWebApi.Models
         }
 
         public void CreateReservation(BookingReservation _br) {
+            if (File.Exists("reservation.txt")) {
+                _reservation = ReadreservationList().ToList();
+            }
             _reservation.Add(_br);
             var output = JsonConvert.SerializeObject(_reservation);
             File.WriteAllText("reservation.txt", output);

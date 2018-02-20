@@ -21,9 +21,8 @@ namespace DreamHotelWebApi.Controllers
         // create new reservation
         // POST api/Reservation
         [HttpPost]
-        [Route("api/[controller]/[action]")]
-        [ActionName("Reservation")]
-        public async Task<StatusCodeResult> Reservation([FromBody] BookingReservation br) {
+        [Route("api/reservation/[controller]")]
+        public async Task<StatusCodeResult> BookingReservation([FromBody] BookingReservation br) {
             if (br == null) {
                 return new Microsoft.AspNetCore.Mvc.BadRequestResult();
             }

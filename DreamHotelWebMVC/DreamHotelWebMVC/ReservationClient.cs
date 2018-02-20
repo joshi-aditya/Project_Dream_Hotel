@@ -73,7 +73,7 @@ namespace DreamHotelWebMVC
 
         public System.Net.HttpStatusCode CreateReservation(BookingReservation bookingReservation) {
 
-            using (var client = CreateActionClient("Reservation")) {
+            using (var client = CreateActionClient("BookingReservation")) {
 
                 HttpResponseMessage response = null;
                 try {
