@@ -33,7 +33,7 @@ namespace DreamHotelWebMVC.Controllers
             {
                 newrooms.Add(new SelectListItem { Value = room.Type, Text = room.Type });
             }
-            _bookingReservation.newList = newrooms;
+            ViewBag.newList = newrooms;
             _bookingReservation.R = rooms.First(_ => true);
             _bookingReservation.Room = _bookingReservation.R.Type;
             return View(_bookingReservation);

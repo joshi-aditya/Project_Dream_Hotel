@@ -39,7 +39,7 @@
                         <div class="col-md-4 col-sm-6 col-md-offset-1">
                             <label asp-for="Room" class="font-white"></label>
                             <div class="form-group">
-                                <select class="form-control" asp-for="Room" asp-items="@Model.newList">
+                                <select class="form-control" asp-for="Room" asp-items="@ViewBag.newList">
                                 </select>
                             </div>
                             <span asp-validation-for="Room"></span>

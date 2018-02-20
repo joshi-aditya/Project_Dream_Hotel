@@ -11,7 +11,6 @@ namespace DreamHotelWebMVC.Models
     {
 
         public long Id { get; set; }
-        public List<SelectListItem> newList = new List<SelectListItem>();
         public List<Person> Persons;
 
         [Required]
