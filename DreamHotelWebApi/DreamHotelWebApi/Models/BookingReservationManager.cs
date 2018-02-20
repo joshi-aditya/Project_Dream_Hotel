@@ -21,6 +21,9 @@ namespace DreamHotelWebApi.Models
             if (File.Exists("reservation.txt")) {
                 _reservation = ReadreservationList().ToList();
             }
+            Random rand = new Random((int)DateTime.Now.Ticks);
+            int _ID = rand.Next(1, 10000);
+            _br.Id = _ID;
             _reservation.Add(_br);
             var output = JsonConvert.SerializeObject(_reservation);
             File.WriteAllText("reservation.txt", output);
