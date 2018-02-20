@@ -7,15 +7,26 @@
 <div class="guest-details">
 
     <div class="container">
+        <h2 class="font-white mt-70 text-align-center">Enter details of the guest below</h2>
+        <div class="col-sm-12 mt-20">
+            <h3 class="font-white col-sm-offset-1">Total price: @ViewBag.Price</h3>
+        </div>
+        
         <div class="row">
             <div class="col-sm-10 col-sm-offset-1 col-xs-12">
-                <form asp-action="GuestDetails" asp-controller="Home"  method="post">
+                <form asp-action="GuestDetails" asp-controller="Home" method="post">
 
                     @foreach (var guest in Model)
                     {
                         @Html.Partial("_GuestDetail", guest)
                     }
-
+                    
+                    <div class="col-sm-12">
+                        <p class="mt-20">
+                            <button type="submit" class="btn btn-primary">Submit</button>
+                        </p>
+                    </div>
+                    
                 </form>
             </div>
         </div>

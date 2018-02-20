@@ -3236,7 +3236,8 @@ ul.dropdown-menu.dropotron li:not(.divider):hover {
 }
 
 .guest-details {
-    background: url("/images/banner_bg.jpg") center;
+    background: url("/images/banner_bg.jpg") no-repeat;
+    background-size: cover;
 }
 
 .carousel {
@@ -3251,4 +3252,9 @@ img[class$="-slide"] {
     .mt-70 {
         margin-top: 0 !important;
     }
+}
+
+.guest-details {
+    height: 100vh;
+    margin-top: 0;
 }

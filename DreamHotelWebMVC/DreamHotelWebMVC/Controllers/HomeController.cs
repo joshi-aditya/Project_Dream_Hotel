@@ -11,19 +11,18 @@ namespace DreamHotelWebMVC.Controllers
 {
     public class HomeController : Controller
     {
-        BookingReservation _bookingReservation;
+        static volatile BookingReservation _bookingReservation = new BookingReservation();
         private IEnumerable<Rooms> rooms;
+
+        // Create a company client instance:
+        Uri baseUri = new Uri("http://localhost:60361");
+        ReservationClient reservationClient = new ReservationClient("http://localhost:60361");
 
         public IActionResult Index()
         {
 
-            _bookingReservation = new BookingReservation();
             _bookingReservation.CheckIn = DateTime.Now;
             _bookingReservation.CheckOut = DateTime.Now;
-
-            // Create a company client instance:
-            var baseUri = new Uri("http://localhost:60361");
-            var reservationClient = new ReservationClient("http://localhost:60361");
 
             // Read initial rooms list:
 
@@ -32,7 +31,7 @@ namespace DreamHotelWebMVC.Controllers
             List<SelectListItem> newrooms = new List<SelectListItem>();
             foreach (Rooms room in rooms)
             {
-                newrooms.Add(new SelectListItem { Value = room.Rent.ToString(), Text = room.Type });
+                newrooms.Add(new SelectListItem { Value = room.Type, Text = room.Type });
             }
             _bookingReservation.newList = newrooms;
             _bookingReservation.R = rooms.First(_ => true);
@@ -43,15 +42,23 @@ namespace DreamHotelWebMVC.Controllers
         [HttpPost]
         public IActionResult Booking(BookingReservation bookingReservation)
         {
+            rooms = reservationClient.GetRoomsAsync().Result;
+            bookingReservation.R = rooms.FirstOrDefault(_ => _.Type.Equals(bookingReservation.Room));
+            _bookingReservation.CheckIn = bookingReservation.CheckIn;
+            _bookingReservation.CheckOut = bookingReservation.CheckOut;
+            _bookingReservation.NumberOfPersons = bookingReservation.NumberOfPersons;
+
             return RedirectToAction("GuestDetails", "Home", bookingReservation);
         }
 
         public IActionResult GuestDetails(BookingReservation bookingDetails)
         {
             var numberOfPersons = bookingDetails.NumberOfPersons;
-            IEnumerable<Person> model = new List<Person>();
+            List<Person> model = new List<Person>();
             for (var i = 0; i < numberOfPersons; i++)
-                model.Append(new Person());
+                model.Add(new Person());
+            _bookingReservation.Persons = model;
+            ViewBag.Price = _bookingReservation.R.Rent;
             return View(model);
         }
     }
