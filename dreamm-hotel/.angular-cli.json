@@ -22,8 +22,13 @@
         "styles.scss"
       ],
       "scripts": [
-        "../node_modules/jquery/dist/jquery.min.js",
-        "../node_modules/bootstrap/dist/js/bootstrap.js",
+        "assets/js/jquery.min.js",
+        "assets/js/jquery.dropotron.min.js",
+        "assets/js/moment.js",
+        "assets/js/skel.min.js",
+        "assets/js/util.js",
+        "assets/bootstrap-3.3.7-dist/js/bootstrap.js",
+        "assets/bootstrap-3.3.7-dist/js/bootstrap-datetimepicker.js",
         "assets/js/main.js"
       ],
       "environmentSource": "environments/environment.ts",

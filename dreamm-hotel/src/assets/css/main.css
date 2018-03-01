@@ -3173,7 +3173,7 @@ input[type="button"],
     }
 
 .banner {
-    background: url('/images/banner.jpg') center;
+    background: url('../../assets/images/banner.jpg') center;
     height: 425px !important;
 }
 

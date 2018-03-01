@@ -19,6 +19,7 @@ namespace DreamHotelWebApi
 
         public static IWebHost BuildWebHost(string[] args) =>
             WebHost.CreateDefaultBuilder(args)
+                .UseUrls("http://localhost:60361")
                 .UseStartup<Startup>()
                 .Build();
     }

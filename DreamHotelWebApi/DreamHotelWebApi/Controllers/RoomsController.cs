@@ -1,7 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
+﻿using System.Collections.Generic;
 using DreamHotelWebApi.Models;
 using Microsoft.AspNetCore.Mvc;
 
@@ -9,12 +6,7 @@ namespace DreamHotelWebApi.Controllers
 {
     public class RoomsController : Controller
     {
-        RoomManager rm = new RoomManager();
-
-        public IActionResult Index()
-        {
-            return View();
-        }
+        readonly RoomManager rm = new RoomManager();
 
         // GET api/reservation/rooms
         [HttpGet]

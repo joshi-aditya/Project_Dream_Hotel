@@ -6,6 +6,8 @@ import { AppComponent } from './app.component';
 import { NavbarComponent } from './navbar/navbar.component';
 import { FooterComponent } from './footer/footer.component';
 import { InquiryFormComponent } from './footer/inquiry-form/inquiry-form.component';
+import { HomepageComponent } from './homepage/homepage.component';
+import { BookingFormComponent } from './homepage/booking-form/booking-form.component';
 
 
 @NgModule({
@@ -13,7 +15,9 @@ import { InquiryFormComponent } from './footer/inquiry-form/inquiry-form.compone
     AppComponent,
     NavbarComponent,
     FooterComponent,
-    InquiryFormComponent
+    InquiryFormComponent,
+    HomepageComponent,
+    BookingFormComponent
   ],
   imports: [
     BrowserModule
