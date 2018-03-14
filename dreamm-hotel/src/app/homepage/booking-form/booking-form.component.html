@@ -4,15 +4,13 @@
       <div class="row">
         <fieldset class="mt-70 mb-50">
 
-          <form>
-
-            <div class="input-validation-error"></div>
+          <form [formGroup]="bookingForm" (ngSubmit)="onSubmit()">
 
             <div class='col-md-4 col-sm-6 col-md-offset-1'>
               <div class="form-group">
                 <label class="font-white">Check-In Date</label>
                 <div class='input-group date' id='datetimepicker6'>
-                  <input type='text' class="form-control"/>
+                  <input type='text' class="form-control" formControlName="checkInDate"/>
                   <span class="input-group-addon">
                     <span class="glyphicon glyphicon-calendar"></span>
                   </span>
@@ -23,7 +21,7 @@
               <div class="form-group">
                 <label class="font-white">Check-Out Date</label>
                 <div class='input-group date' id='datetimepicker7'>
-                  <input type="text" class="form-control"/>
+                  <input type="text" class="form-control" formControlName="checkOutDate"/>
                   <span class="input-group-addon">
                     <span class="glyphicon glyphicon-calendar"></span>
                   </span>
@@ -33,9 +31,10 @@
 
 
             <div class="col-md-4 col-sm-6 col-md-offset-1">
-              <label asp-for="Room" class="font-white">Room Type</label>
+              <label class="font-white">Room Type</label>
               <div class="form-group">
-                <select class="form-control">
+                <select class="form-control" formControlName="roomType">
+                  <option *ngFor="let room of this.roomType" [value]="room.type">{{room.type}}</option>
                 </select>
               </div>
             </div>
@@ -43,8 +42,7 @@
             <div class="col-md-4 col-sm-6 col-md-offset-1">
               <label class="font-white">NumberOfPersons</label>
               <div class="form-group">
-                <select class="form-control">
-                  <option disabled selected>--- SELECT ---</option>
+                <select class="form-control" formControlName="numberOfPersons">
                   <option value="1">1</option>
                   <option value="2">2</option>
                   <option value="3">3</option>

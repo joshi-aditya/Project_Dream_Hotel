@@ -1,0 +1,39 @@
+<div class="guest-details">
+  <div class="opaque-bg">
+    <div class="container">
+      <h2 class="font-white mt-70 text-align-center">Enter details of the guest below</h2>
+      <div class="col-sm-12 mt-20">
+        <h3 class="font-white col-sm-offset-1">Total price: </h3>
+      </div>
+
+      <div class="row">
+        <div class="col-sm-10 col-sm-offset-1 col-xs-12">
+          <form [formGroup]="guestDetails" (ngSubmit)="onSubmit()">
+
+
+            <div class="col-sm-6">
+              <div class="form-group">
+                <label class="font-white">First Name</label>
+                <input type="text" class="form-group" formControlName="firstName"/>
+              </div>
+            </div>
+            <div class="col-sm-6">
+              <div class="form-group">
+                <label class="font-white">Last Name</label>
+                <input type="text" class="form-group" formControlName="lastName"/>
+              </div>
+            </div>
+
+
+            <div class="col-sm-12">
+              <p class="mt-20">
+                <button type="submit" class="btn btn-primary">Confirm</button>
+              </p>
+            </div>
+
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
