@@ -4,6 +4,7 @@ import { Router } from '@angular/router';
 import { BookingService } from '../../shared/services/booking.service';
 import { Rooms } from '../../shared/models/rooms';
 import { BookingReservation } from '../../shared/models/bookingReservation';
+import { forEach } from '@angular/router/src/utils/collection';
 
 @Component({
   selector: 'app-booking-form',
@@ -36,11 +37,18 @@ export class BookingFormComponent implements OnInit {
 
   onSubmit() {
     console.log(this.bookingForm);
-    const bookingReservation = new BookingReservation(0,
+    let selectedRoom: Rooms;
+    this.roomType.forEach(room => {
+      if (this.bookingForm.value.roomType === room.type) {
+        selectedRoom = room;
+      }
+    });
+    console.log(selectedRoom);
+    const bookingReservation = new BookingReservation(
       this.bookingForm.value.checkInDate,
       this.bookingForm.value.checkOutDate,
       this.bookingForm.value.numberOfPersons,
-      this.bookingForm.value.roomType,
+      selectedRoom,
       []
     );
     this.bookingService.bookingReservation = bookingReservation;

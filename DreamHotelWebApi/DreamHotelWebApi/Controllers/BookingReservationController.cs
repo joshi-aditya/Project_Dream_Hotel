@@ -2,6 +2,7 @@
 using DreamHotelWebApi.Models;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Mvc;
+using Newtonsoft.Json;
 
 namespace DreamHotelWebApi.Controllers
 {
@@ -19,13 +20,19 @@ namespace DreamHotelWebApi.Controllers
         // POST api/Reservation
         [HttpPost]
         [Route("api/reservation/[controller]")]
-        public async Task<StatusCodeResult> BookingReservation([FromBody] string br) {
-            if (br == null) {
+        public async Task<StatusCodeResult> BookingReservation([FromBody] GetJSON json) {
+            if (json == null) {
                 return new BadRequestResult();
             }
+            BookingReservation br = JsonConvert.DeserializeObject<BookingReservation>(json.Body);
 
            // dm.CreateReservation(br);
             return new StatusCodeResult(201);
         }
+    }
+
+    public class GetJSON
+    {
+        public string Body { get; set; }
     }
 }

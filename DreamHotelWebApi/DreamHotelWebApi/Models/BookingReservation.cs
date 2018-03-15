@@ -14,7 +14,6 @@ namespace DreamHotelWebApi.Models
         [BsonId]
         public ObjectId Id { get; set; }
 
-        public List<SelectListItem> newList = new List<SelectListItem>();
         public List<Person> Persons;
 
         [Required]
@@ -27,9 +26,7 @@ namespace DreamHotelWebApi.Models
         public int NumberOfPersons { get; set; }
 
         [Required]
-        public Rooms R { get; set; }
-
-        public string Room { get; set; }
+        public Rooms Room { get; set; }
 
         public BookingReservation() {
             Persons = new List<Person>();
