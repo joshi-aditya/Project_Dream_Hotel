@@ -19,12 +19,12 @@ namespace DreamHotelWebApi.Controllers
         // POST api/Reservation
         [HttpPost]
         [Route("api/reservation/[controller]")]
-        public async Task<StatusCodeResult> BookingReservation(BookingReservation br) {
+        public async Task<StatusCodeResult> BookingReservation([FromBody] string br) {
             if (br == null) {
                 return new BadRequestResult();
             }
 
-            dm.CreateReservation(br);
+           // dm.CreateReservation(br);
             return new StatusCodeResult(201);
         }
     }

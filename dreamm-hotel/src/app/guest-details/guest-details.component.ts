@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormArray, FormControl, FormGroup, Validators } from '@angular/forms';
 import { BookingService } from '../shared/services/booking.service';
 import { Person } from '../shared/models/person';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-guest-details',
@@ -13,7 +14,7 @@ export class GuestDetailsComponent implements OnInit {
   numberOfPersons: number;
   guestDetails: FormGroup;
 
-  constructor(private bookingService: BookingService) {
+  constructor(private bookingService: BookingService, private router: Router) {
   }
 
   ngOnInit() {
@@ -22,7 +23,6 @@ export class GuestDetailsComponent implements OnInit {
       lastName: new FormArray([])
     });
     this.numberOfPersons = this.bookingService.bookingReservation.numberOfPersons;
-    console.log(this.numberOfPersons);
     this.addControls();
   }
 
@@ -31,8 +31,12 @@ export class GuestDetailsComponent implements OnInit {
       const person = new Person(this.guestDetails.value.firstName[i], this.guestDetails.value.lastName[i]);
       this.bookingService.bookingReservation.persons.push(person);
     }
-    console.log(this.bookingService.bookingReservation);
-    console.log(this.guestDetails);
+    this.bookingService.bookRoom()
+      .subscribe(result => {
+        console.log(result);
+        this.router.navigateByUrl('/home');
+      });
+    this.guestDetails.reset();
   }
 
   addControls() {
