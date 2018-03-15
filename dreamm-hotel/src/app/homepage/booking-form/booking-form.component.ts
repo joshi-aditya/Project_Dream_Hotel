@@ -11,7 +11,7 @@ import { BookingReservation } from '../../shared/models/bookingReservation';
   styleUrls: ['./booking-form.component.scss']
 })
 export class BookingFormComponent implements OnInit {
-
+  today: Date = new Date();
   bookingForm: FormGroup;
 
   constructor(private router: Router, private bookingService: BookingService) {
@@ -20,6 +20,7 @@ export class BookingFormComponent implements OnInit {
   roomType: Rooms[];
 
   ngOnInit() {
+    console.log(this.today);
     this.bookingForm = new FormGroup({
       checkInDate: new FormControl(null, Validators.required),
       checkOutDate: new FormControl(null, Validators.required),
@@ -34,7 +35,7 @@ export class BookingFormComponent implements OnInit {
   }
 
   onSubmit() {
-
+    console.log(this.bookingForm);
     const bookingReservation = new BookingReservation(0,
       this.bookingForm.value.checkInDate,
       this.bookingForm.value.checkOutDate,
@@ -44,7 +45,7 @@ export class BookingFormComponent implements OnInit {
     );
     this.bookingService.bookingReservation = bookingReservation;
     this.router.navigateByUrl('/bookingdetails');
-    this.bookingForm.reset();
+    // this.bookingForm.reset();
   }
 
 }
