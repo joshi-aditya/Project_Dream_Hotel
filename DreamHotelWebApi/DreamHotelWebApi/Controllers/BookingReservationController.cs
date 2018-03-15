@@ -26,7 +26,7 @@ namespace DreamHotelWebApi.Controllers
             }
             BookingReservation br = JsonConvert.DeserializeObject<BookingReservation>(json.Body);
 
-           // dm.CreateReservation(br);
+            dm.CreateReservation(br);
             return new StatusCodeResult(201);
         }
     }

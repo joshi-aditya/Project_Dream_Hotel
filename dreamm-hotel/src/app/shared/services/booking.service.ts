@@ -25,11 +25,9 @@ export class BookingService {
       });
   }
 
-
   bookRoom() {
     const bookingLink = 'api/reservation/bookingreservation';
     const body = JSON.stringify(this.bookingReservation);
-    console.log(body);
     const headers = new HttpHeaders({'Content-Type': 'application/json'});
     return this.http.post(this.url + bookingLink, {'body': body}, {headers: headers})
       .map(result => {

@@ -3648,6 +3648,11 @@ ul.dropdown-menu.dropotron li:not(.divider):hover {
   background-size: cover;
 }
 
+.booking-history {
+  background: url("../../assets/images/banner_bg.jpg") no-repeat;
+  background-size: cover;
+}
+
 .carousel {
   margin-bottom: 0;
 }

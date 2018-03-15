@@ -1,7 +1,7 @@
+
+import { BookingHistoryComponent } from './booking-history/booking-history.component';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-
-
 import { AppComponent } from './app.component';
 import { NavbarComponent } from './navbar/navbar.component';
 import { FooterComponent } from './footer/footer.component';
@@ -14,7 +14,6 @@ import { FormsModule, ReactiveFormsModule } from "@angular/forms";
 import { HttpClientModule } from "@angular/common/http";
 import { BookingService } from "./shared/services/booking.service";
 
-
 @NgModule({
   declarations: [
     AppComponent,
@@ -23,7 +22,8 @@ import { BookingService } from "./shared/services/booking.service";
     InquiryFormComponent,
     HomepageComponent,
     BookingFormComponent,
-    GuestDetailsComponent
+    GuestDetailsComponent,
+    BookingHistoryComponent
   ],
   imports: [
     BrowserModule,
