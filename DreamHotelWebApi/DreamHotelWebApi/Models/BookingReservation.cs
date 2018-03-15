@@ -1,4 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc.Rendering;
+using MongoDB.Bson;
+using MongoDB.Bson.Serialization.Attributes;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
@@ -8,8 +10,10 @@ using System.Threading.Tasks;
 namespace DreamHotelWebApi.Models
 {
     public class BookingReservation
-    {
-        public long Id { get; set; }
+    {   
+        [BsonId]
+        public ObjectId Id { get; set; }
+
         public List<SelectListItem> newList = new List<SelectListItem>();
         public List<Person> Persons;
 

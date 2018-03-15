@@ -6,13 +6,13 @@ namespace DreamHotelWebApi.Controllers
 {
     public class RoomsController : Controller
     {
-        readonly RoomManager rm = new RoomManager();
+        readonly DatabaseManager dm = new DatabaseManager();
 
         // GET api/reservation/rooms
         [HttpGet]
         [Route("api/reservation/[controller]")]
         public IEnumerable<Rooms> Get() {
-            return rm.GetAll;
+            return dm.GetAll();
         }
     }
 }

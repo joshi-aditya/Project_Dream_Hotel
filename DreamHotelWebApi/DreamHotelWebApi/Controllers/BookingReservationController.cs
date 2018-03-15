@@ -10,7 +10,7 @@ namespace DreamHotelWebApi.Controllers
 {
     public class BookingReservationController : Controller
     {
-        BookingReservationManager bm = new BookingReservationManager();
+        DatabaseManager dm = new DatabaseManager();
 
         private IHostingEnvironment _Env;
 
@@ -22,12 +22,12 @@ namespace DreamHotelWebApi.Controllers
         // POST api/Reservation
         [HttpPost]
         [Route("api/reservation/[controller]")]
-        public async Task<StatusCodeResult> BookingReservation([FromBody] BookingReservation br) {
+        public async Task<StatusCodeResult> BookingReservation(BookingReservation br) {
             if (br == null) {
                 return new Microsoft.AspNetCore.Mvc.BadRequestResult();
             }
 
-            bm.CreateReservation(br);
+            dm.CreateReservation(br);
             return new StatusCodeResult(201);
         }
     }
