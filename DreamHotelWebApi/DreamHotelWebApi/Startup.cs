@@ -25,6 +25,7 @@ namespace DreamHotelWebApi
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddTransient<DatabaseManager>();
+            services.AddCors();
             services.AddMvc();
         }
 
