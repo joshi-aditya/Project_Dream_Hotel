@@ -12,8 +12,15 @@ namespace DreamHotelWebApi.Models
         IMongoDatabase db;
 
         public DatabaseManager() {
-            client = new MongoClient("mongodb://localhost:27017");
-            db = client.GetDatabase("HotelDb");
+            try {
+                client = new MongoClient("mongodb://localhost:27017");
+                if (client == null) {
+                    Console.WriteLine("Error while connecting to database");
+                }
+                db = client.GetDatabase("HotelDb");
+            } catch (Exception e) {
+                Console.WriteLine(e);
+            }
         }
 
         public IEnumerable<Rooms> GetAll() {
