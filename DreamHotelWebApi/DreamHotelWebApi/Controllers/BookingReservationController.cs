@@ -1,7 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
+﻿using System.Threading.Tasks;
 using DreamHotelWebApi.Models;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Mvc;
@@ -24,7 +21,7 @@ namespace DreamHotelWebApi.Controllers
         [Route("api/reservation/[controller]")]
         public async Task<StatusCodeResult> BookingReservation(BookingReservation br) {
             if (br == null) {
-                return new Microsoft.AspNetCore.Mvc.BadRequestResult();
+                return new BadRequestResult();
             }
 
             dm.CreateReservation(br);
