@@ -1,4 +1,5 @@
-﻿using System.Threading.Tasks;
+﻿using System.Collections.Generic;
+using System.Threading.Tasks;
 using DreamHotelWebApi.Models;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Mvc;
@@ -28,6 +29,12 @@ namespace DreamHotelWebApi.Controllers
 
             dm.CreateReservation(br);
             return new StatusCodeResult(201);
+        }
+
+        [HttpGet]
+        [Route("api/reservation/[controller]")]
+        public IEnumerable<BookingReservation> Get() {
+            return dm.GetBookingData();
         }
     }
 

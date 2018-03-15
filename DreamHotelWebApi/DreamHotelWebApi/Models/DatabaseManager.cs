@@ -33,5 +33,10 @@ namespace DreamHotelWebApi.Models
             var collection = db.GetCollection<BookingReservation>("BookingReservation");
             collection.InsertOneAsync(_br);
         }
+
+        public IEnumerable<BookingReservation> GetBookingData() {
+            var collection = db.GetCollection<BookingReservation>("BookingReservation");
+            return collection.Find(_ => true).ToList();
+        }
     }
 }
