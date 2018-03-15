@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Router } from "@angular/router";
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-footer',
@@ -12,7 +12,6 @@ export class FooterComponent implements OnInit {
   }
 
   ngOnInit() {
-    console.log(this.router.isActive('/', true));
   }
 
 }

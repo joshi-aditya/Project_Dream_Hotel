@@ -1,11 +1,13 @@
-import { Injectable } from "@angular/core";
-import { HttpClient } from "@angular/common/http";
-import { Rooms } from "../models/rooms";
-import "rxjs/add/operator/map";
+import { Injectable } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
+import { Rooms } from '../models/rooms';
+import 'rxjs/add/operator/map';
+import {BookingReservation} from '../models/bookingReservation';
 
 @Injectable()
 export class BookingService {
 
+  bookingReservation: BookingReservation;
   roomType: Rooms[];
 
   constructor(private http: HttpClient) {
@@ -15,9 +17,8 @@ export class BookingService {
 
   getRoomsData() {
     const getRooms = 'api/reservation/rooms';
-    return this.http.get<Rooms[]>(this.url+getRooms)
+    return this.http.get<Rooms[]>(this.url + getRooms)
       .map(data => {
-        console.log(data);
         this.roomType = data;
         return data;
       });
