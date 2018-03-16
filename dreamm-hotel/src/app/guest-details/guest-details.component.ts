@@ -12,6 +12,7 @@ import { Router } from '@angular/router';
 export class GuestDetailsComponent implements OnInit {
 
   numberOfPersons: number;
+  rentAmount: number;
   guestDetails: FormGroup;
 
   constructor(private bookingService: BookingService, private router: Router) {
@@ -24,6 +25,7 @@ export class GuestDetailsComponent implements OnInit {
     });
     this.numberOfPersons = this.bookingService.bookingReservation.numberOfPersons;
     this.addControls();
+    this.getRentAmount();
   }
 
   onSubmit() {
@@ -36,6 +38,12 @@ export class GuestDetailsComponent implements OnInit {
         this.router.navigateByUrl('/home');
       });
     this.guestDetails.reset();
+  }
+
+  getRentAmount() {
+    // tslint:disable-next-line:max-line-length
+    const timeDiff = Math.abs((new Date(this.bookingService.bookingReservation.checkIn).getTime()) - (new Date(this.bookingService.bookingReservation.checkOut)).getTime());
+    this.rentAmount = Math.ceil(timeDiff / (1000 * 3600 * 24)) * this.bookingService.bookingReservation.room.rent;
   }
 
   addControls() {

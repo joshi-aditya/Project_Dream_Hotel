@@ -18,18 +18,26 @@
               <td class="center font-white">
                   <strong>Number of Persons</strong>
               </td>
+              <td class="center font-white">
+                  <strong>Persons Details</strong>
+              </td>
             </tr>
             </thead>
             <tbody>
             <tr *ngFor="let booking of this.bookingData; let i = index">
-              <td class="center font-white">{{booking.checkIn}}</td>
-              <td class="center font-white">{{booking.checkOut}}</td>
+              <td class="center font-white">{{booking.checkIn | date: "MM/dd/yyyy"}}</td>
+              <td class="center font-white">{{booking.checkOut | date: "MM/dd/yyyy"}}</td>
               <td class="center font-white">{{booking.room.type}}</td>
               <td class="center font-white">{{booking.numberOfPersons}}</td>
+              <td class="center font-white">
+                <ul>
+                  <li *ngFor="let data of booking.persons">{{data.firstName + " " + data.lastName}}</li>
+                </ul>
+              </td>
             </tr>
             </tbody>
           </table>
-          
+
       </div>
   </div>
 </div>
