@@ -21,7 +21,6 @@ export class BookingFormComponent implements OnInit {
   roomType: Rooms[];
 
   ngOnInit() {
-    console.log(this.today);
     this.bookingForm = new FormGroup({
       checkInDate: new FormControl(null, Validators.required),
       checkOutDate: new FormControl(null, Validators.required),
@@ -43,7 +42,6 @@ export class BookingFormComponent implements OnInit {
         selectedRoom = room;
       }
     });
-    console.log(selectedRoom);
     const bookingReservation = new BookingReservation(
       this.bookingForm.value.checkInDate,
       this.bookingForm.value.checkOutDate,

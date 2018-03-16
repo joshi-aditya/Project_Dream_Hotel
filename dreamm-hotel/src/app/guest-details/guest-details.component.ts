@@ -33,7 +33,6 @@ export class GuestDetailsComponent implements OnInit {
     }
     this.bookingService.bookRoom()
       .subscribe(result => {
-        console.log(result);
         this.router.navigateByUrl('/home');
       });
     this.guestDetails.reset();

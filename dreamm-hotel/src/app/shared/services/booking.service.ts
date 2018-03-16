@@ -9,6 +9,7 @@ import { Observable } from 'rxjs/Observable';
 export class BookingService {
 
   bookingReservation: BookingReservation;
+  bookingHistory: BookingReservation[];
   roomType: Rooms[];
 
   constructor(private http: HttpClient) {
@@ -31,8 +32,16 @@ export class BookingService {
     const headers = new HttpHeaders({'Content-Type': 'application/json'});
     return this.http.post(this.url + bookingLink, {'body': body}, {headers: headers})
       .map(result => {
-        console.log(result);
         return result;
+      });
+  }
+
+  getBookingData() {
+    const getBookingPath = 'api/reservation/bookingreservation';
+    return this.http.get<BookingReservation[]>(this.url + getBookingPath)
+      .map(data => {
+        this.bookingHistory = data;
+        return data;
       });
   }
 
