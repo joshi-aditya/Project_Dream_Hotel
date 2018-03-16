@@ -1,91 +1,35 @@
 <div class="booking-history">
   <div class="opaque-bg full-height">
     <div class="container">
-      <div class="col-sm-12 mt-20">
+      <div class="col-sm-12 mt-70">
 
-          <!-- <table>
-              <thead>
-              <tr>
-                <td>
-                  <strong>Order Number</strong>
-                </td>
-                <td class="text-center">
-                  <strong>Order Date</strong>
-                </td>
-                <td class="text-center">
-                  <strong>View</strong>
-                </td>
-              </tr>
-              </thead>
-              <tbody>
-              <tr *ngFor="let order of orderList;let i = index">
-                <td>{{this.userAccountService.user.orderList[i].substring(0,6)}}</td>
-                <td class="text-center">{{order.orderDate | date: "M/d/y HH:mm"}}</td>
-                <td class="text-center">
-                  <a [routerLink]="['..', this.userAccountService.user.orderList[i]]">
-                    <button type="submit" class="btn btn-success">view</button>
-                  </a>
-                </td>
-              </tr>
-              </tbody>
-            </table> -->
-
-        <!-- <div class="row">
-          <div class="col-sm-10 col-sm-offset-1 col-xs-12">
-            <div class="col-sm-2">
-              <div class="form-group">
-                <label class="font-white center">Check-in</label>
-              </div>
-            </div>
-            <div class="col-sm-2">
-              <div class="form-group">
-                <label class="font-white center">Check-out</label>
-              </div>
-            </div>
-            <div class="col-sm-2">
-              <div class="form-group">
-                <label class="font-white center">Room Type</label>
-              </div>
-            </div>
-            <div class="col-sm-2">
-              <div class="form-group">
-                <label class="font-white center">Number of Person</label>
-              </div>
-            </div>
-            <div class="col-sm-4">
-              <div class="form-group">
-                <label class="font-white center">Person Name</label>
-              </div>
-            </div>
-            <div *ngFor="let booking of this.bookingData; let i = index">
-              <div class="col-sm-2">
-                <div class="form-group">
-                  <p class="font-white center">{{booking.checkIn}}</p>
-                </div>
-              </div>
-              <div class="col-sm-2">
-                <div class="form-group">
-                  <p class="font-white center">{{booking.checkOut}}</p>
-                </div>
-              </div>
-              <div class="col-sm-2">
-                <div class="form-group">
-                  <p class="font-white center">{{booking.room.type}}</p>
-                </div>
-              </div>
-              <div class="col-sm-2">
-                <div class="form-group">
-                  <p class="font-white center">{{booking.numberOfPersons}}</p>
-                </div>
-              </div>
-              <div class="col-sm-4">
-                <div class="form-group">
-                  <p class="font-white center">AAAA</p>
-                </div>
-              </div>
-        </div>
-      </div> -->
-
+        <table>
+            <thead>
+            <tr>
+              <td class="center font-white">
+                <strong>Check-in</strong>
+              </td>
+              <td class="center font-white">
+                <strong>Checkout</strong>
+              </td>
+              <td class="center font-white">
+                <strong>Room Type</strong>
+              </td>
+              <td class="center font-white">
+                  <strong>Number of Persons</strong>
+              </td>
+            </tr>
+            </thead>
+            <tbody>
+            <tr *ngFor="let booking of this.bookingData; let i = index">
+              <td class="center font-white">{{booking.checkIn}}</td>
+              <td class="center font-white">{{booking.checkOut}}</td>
+              <td class="center font-white">{{booking.room.type}}</td>
+              <td class="center font-white">{{booking.numberOfPersons}}</td>
+            </tr>
+            </tbody>
+          </table>
+          
       </div>
   </div>
 </div>
